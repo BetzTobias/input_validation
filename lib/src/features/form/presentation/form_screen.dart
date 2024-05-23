@@ -44,12 +44,31 @@ class FormScreen extends StatelessWidget {
   }
 
   String? validateEmail(String? input) {
-    // TODO: implementiere hier die Logik, die im Task Sheet beschrieben ist
-    return null;
+    if (input == null || input.isEmpty) {
+      return 'E-Mail darf nicht leer sein';
+    }
+    if (input.length <= 5) {
+      return 'E-Mail muss mehr als 5 Zeichen haben';
+    }
+    if (!input.contains('@')) {
+      return 'E-Mail muss ein @-Zeichen enthalten';
+    }
+    if (!(input.endsWith('.com') || input.endsWith('.de'))) {
+      return 'E-Mail muss mit .com oder .de enden';
+    }
+    return null; // Null bedeutet, dass die E-Mail gültig ist
   }
 
   String? validatePw(String? input) {
-    // TODO: implementiere hier die Logik, die im Task Sheet beschrieben ist
-    return null;
+    if (input == null || input.isEmpty) {
+      return 'Passwort darf nicht leer sein';
+    }
+    if (input.length < 6) {
+      return 'Passwort muss mindestens 6 Zeichen lang sein';
+    }
+    if (input.length > 12) {
+      return 'Passwort darf höchstens 12 Zeichen lang sein';
+    }
+    return null; // Null bedeutet, dass das Passwort gültig ist
   }
 }
